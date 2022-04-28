@@ -1,5 +1,3 @@
-// build: g++ victim.cc -o victim
-
 #include <iostream>
 
 volatile int gold = 0;
