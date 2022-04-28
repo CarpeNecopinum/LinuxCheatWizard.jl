@@ -2,7 +2,7 @@ struct FoundValue{T}
     process::TargetProcess
     offset::UInt
 
-    FoundValue(search::ValueSearch{T}, index::Int=1) where {T} =
+    FoundValue(search::Search{T}, index::Int=1) where {T} =
         new{T}(search.process, search.candidates[index])
 end
 

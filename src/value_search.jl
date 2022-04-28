@@ -1,4 +1,4 @@
-mutable struct ValueSearch{T}
+mutable struct ValueSearch{T} <: Search{T}
     process::TargetProcess
     candidates::Vector{UInt}
 
