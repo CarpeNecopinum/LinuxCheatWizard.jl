@@ -3,7 +3,10 @@ struct FoundValue{T}
     offset::UInt
 
     FoundValue(search::Search{T}, index::Int=1) where {T} =
-        new{T}(search.process, search.candidates[index])
+        new{T}(search.process, candidates(search)[index])
+
+    FoundValue{T}(process::TargetProcess, offset) where {T} =
+        new{T}(process, offset)
 end
 
 function Base.setindex!(handle::FoundValue{T}, value::Any) where {T}
