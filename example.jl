@@ -1,3 +1,5 @@
+# This file is meant to be run interactively using VSCode/Atom and edited as needed
+
 cd(dirname(@__FILE__))
 using Pkg
 Pkg.activate(".")
@@ -132,3 +134,16 @@ xp_search = ValueSearch(target, Int32(3388))
 refine_offsets!(xp_search, 1788)
 xp = FoundValue(xp_search.inner)
 xp[] = 3388
+
+nodes_search = ValueSearch(target, Int32(229))
+refine_offsets!(nodes_search, Int32(219))
+
+# When you search for the size of a stacked resource like nodes
+# you always get 2 results, first is the weight of the stack, second is the number of items
+nodes_weight = FoundValue(nodes_search.inner)
+
+# by making the weight of the stack negative, we get more free space in the ship
+nodes_weight[] = -1e6
+
+nodes_count = FoundValue(nodes_search.inner, 2)
+nodes_count[] = 1e9
