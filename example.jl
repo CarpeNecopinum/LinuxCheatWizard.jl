@@ -10,7 +10,7 @@ using .CheatWizard
 
 
 # Easiest way to get debuggin permission for a process: be its parent
-run(`test_target/target`, wait=false)
+run(`xterm -e test_target/target`, wait=false)
 
 target = TargetProcess("target")
 
